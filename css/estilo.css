@@ -1,2 +1,521 @@
-/* Hotel Pet - estilos */
-/* por enquanto vazio, o CSS vem na semana 2 */
+/* reset basico */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2b2b;
+    background-color: #faf6f0;
+}
+
+/* topo */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.logo {
+    color: #2a9d8f;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+}
+
+.usuario img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* estrutura das colunas */
+.container {
+    display: flex;
+    min-height: calc(100vh - 71px);
+}
+
+/* menu lateral */
+.menu-lateral {
+    width: 220px;
+    background-color: #ffffff;
+    border-right: 2px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-lateral li a {
+    display: block;
+    padding: 12px 20px;
+    color: #2b2b2b;
+    text-decoration: none;
+}
+
+.menu-lateral li a:hover {
+    background-color: #f2f2f2;
+}
+
+.menu-lateral a.ativo {
+    background-color: #e6f4f2;
+    border-left: 4px solid #2a9d8f;
+    color: #2a9d8f;
+    font-weight: bold;
+}
+
+/* conteudo */
+.conteudo {
+    flex: 1;
+    padding: 30px;
+}
+
+.breadcrumb {
+    color: #777777;
+    margin-bottom: 20px;
+}
+
+.cartao {
+    background-color: #f0f0f0;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.cartao h2 {
+    margin-top: 0;
+}
+
+/* botoes */
+.botao-novo, .botao-branco {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #2a9d8f;
+    border: 1px solid #2a9d8f;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao-azul {
+    background-color: #2a9d8f;
+    color: #ffffff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao-azul:hover {
+    background-color: #21867a;
+}
+
+.acoes-topo {
+    margin-bottom: 15px;
+}
+
+.acoes-topo a, .acoes-topo button {
+    margin-right: 10px;
+}
+
+/* filtro visualizar por */
+.visualizar-por {
+    color: #555555;
+}
+
+.tag-ativa, .tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.tag-ativa {
+    border: 1px solid #9b59b6;
+    color: #9b59b6;
+}
+
+.tag {
+    border: 1px solid #2a9d8f;
+    color: #2a9d8f;
+}
+
+/* area de pesquisa */
+.pesquisa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: #e4e4e4;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+.pesquisa .campo {
+    width: 47%;
+}
+
+.pesquisa-botoes {
+    width: 100%;
+    text-align: right;
+}
+
+/* campos de formulario */
+.campo {
+    margin-bottom: 15px;
+}
+
+.campo label {
+    display: block;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.campo input[type="text"],
+.campo input[type="password"],
+.campo input[type="date"],
+.campo input[type="file"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* tabelas */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+
+.tabela th {
+    text-align: left;
+    padding: 12px;
+    color: #2a9d8f;
+    background-color: #f7f7f7;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tabela td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela a {
+    color: #9b59b6;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.foto-tabela {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* etiquetas de status */
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 13px;
+}
+
+.status.reservada {
+    color: #2a9d8f;
+    border-color: #2a9d8f;
+}
+
+.status.andamento {
+    color: #52b788;
+    border-color: #52b788;
+}
+
+.status.finalizada {
+    color: #2a6fb0;
+    border-color: #2a6fb0;
+}
+
+.status.ativo {
+    color: #52b788;
+    border-color: #52b788;
+}
+
+.status.inativo {
+    color: #e76f51;
+    border-color: #e76f51;
+}
+
+/* formularios */
+.cartao form {
+    max-width: 620px;
+}
+
+.form-botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.botao-salvar {
+    background-color: #2a9d8f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao-salvar:hover {
+    background-color: #21867a;
+}
+
+.botao-limpar {
+    background-color: #ffffff;
+    color: #2a9d8f;
+    border: 1px solid #2a9d8f;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* formulario de pet com imagem ao lado */
+.form-pet {
+    display: flex;
+    gap: 30px;
+}
+
+.form-campos {
+    flex: 1;
+}
+
+.form-imagem label {
+    display: block;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.form-imagem img {
+    width: 180px;
+    height: 180px;
+    border: 1px solid #cccccc;
+    background-color: #ededed;
+}
+
+/* total das diarias */
+.total {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.total span {
+    color: #2a9d8f;
+    font-weight: bold;
+}
+
+/* imagens na edicao de reserva */
+.imagens-reserva {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.imagens-reserva img {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #cccccc;
+    background-color: #ededed;
+}
+
+.add-imagem {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    font-size: 30px;
+    color: #999999;
+    text-decoration: none;
+    border: 1px solid #cccccc;
+    background-color: #f0f0f0;
+}
+
+/* telas de visualizar */
+.detalhes {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.detalhes td {
+    padding: 6px 10px;
+    vertical-align: top;
+}
+
+.detalhes .rotulo {
+    text-align: right;
+    color: #555555;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.detalhes a {
+    color: #2a9d8f;
+    text-decoration: none;
+}
+
+.img-reserva {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #cccccc;
+    background-color: #ededed;
+    margin-right: 8px;
+}
+
+.img-pet {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #cccccc;
+    background-color: #ededed;
+}
+
+.reserva-completa {
+    color: #2a6fb0;
+    margin: 4px 0;
+}
+
+.reserva-andamento {
+    color: #52b788;
+    margin: 4px 0;
+}
+
+.botao-voltar {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #2a9d8f;
+    border: 1px solid #2a9d8f;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* tela de login */
+.tela-login {
+    display: flex;
+    min-height: 100vh;
+}
+
+.login-imagem {
+    flex: 1;
+    background-color: #e0e0e0;
+}
+
+.login-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.login-caixa {
+    width: 400px;
+    background-color: #f0f0f0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-caixa h1 {
+    color: #2a9d8f;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-caixa input[type="text"],
+.login-caixa input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.login-caixa input[type="submit"] {
+    width: 100%;
+    background-color: #2a9d8f;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-caixa input[type="submit"]:hover {
+    background-color: #21867a;
+}
+
+.login-opcoes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.divisor {
+    text-align: center;
+    color: #777777;
+    margin: 20px 0;
+}
+
+.login-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.login-social a {
+    color: #2b2b2b;
+    text-decoration: none;
+    border: 1px solid #cccccc;
+    padding: 6px 14px;
+    border-radius: 4px;
+}
+
+.login-criar {
+    text-align: center;
+}
+
+.login-criar a, .login-opcoes a {
+    color: #2a9d8f;
+    text-decoration: none;
+}
