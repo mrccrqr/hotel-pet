@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Pet - Usuários</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <div class="topo">
+    <div class="logo">Hotel Pet</div>
+    <div class="usuario">
+      <img src="img/avatar.png" alt="Foto do usuário">
+      <span>João da Silva</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="menu-lateral">
+      <ul>
+        <li><a href="pets.html">Pets</a></li>
+        <li><a href="usuarios.html" class="ativo">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </div>
+
+    <div class="conteudo">
+
+      <p class="breadcrumb">Home / Usuários</p>
+
+      <div class="cartao">
+
+        <h2>Usuários</h2>
+
+        <div class="acoes-topo">
+          <a href="novo-usuario.html" class="botao-novo">novo</a>
+          <button class="botao-branco">Remover</button>
+          <button class="botao-branco">Mudar status</button>
+        </div>
+
+        <p class="visualizar-por">Visualizar Por:
+          <a href="#" class="tag-ativa">Usuários</a>
+          <a href="#" class="tag">Função</a>
+        </p>
+
+        <div class="pesquisa">
+
+          <div class="campo">
+            <label>Id</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>criado em</label>
+            <input type="date">
+            <input type="date">
+          </div>
+
+          <div class="campo">
+            <label>email</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>nome</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>status</label>
+            <select>
+              <option></option>
+              <option>Ativo</option>
+              <option>Inativo</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label>função</label>
+            <select>
+              <option></option>
+              <option>Cliente</option>
+              <option>Funcionário</option>
+              <option>Gerente</option>
+            </select>
+          </div>
+
+          <div class="pesquisa-botoes">
+            <button class="botao-azul">Pesquisar</button>
+            <button class="botao-branco">Limpar</button>
+          </div>
+
+        </div>
+
+        <table class="tabela">
+          <tr>
+            <th></th>
+            <th>Foto</th>
+            <th>email</th>
+            <th>nome</th>
+            <th>função</th>
+            <th>status</th>
+            <th>criado em</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td><img src="img/avatar.png" alt="Foto" class="foto-tabela"></td>
+            <td>joaodasilva@pet.com</td>
+            <td>João da Silva</td>
+            <td>Gerente</td>
+            <td><span class="status ativo">Ativo</span></td>
+            <td>19/02/2020</td>
+            <td><a href="novo-usuario.html">Editar</a> <a href="perfil.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td><img src="img/avatar.png" alt="Foto" class="foto-tabela"></td>
+            <td>maria@pet.com</td>
+            <td>Maria da Silva</td>
+            <td>Funcionário</td>
+            <td><span class="status inativo">Inativo</span></td>
+            <td>19/02/2020</td>
+            <td><a href="novo-usuario.html">Editar</a> <a href="perfil.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td><img src="img/avatar.png" alt="Foto" class="foto-tabela"></td>
+            <td>josedasilva@pet.com</td>
+            <td>José da Silva</td>
+            <td>Cliente</td>
+            <td><span class="status ativo">Ativo</span></td>
+            <td>19/02/2020</td>
+            <td><a href="novo-usuario.html">Editar</a> <a href="perfil.html">Visualizar</a></td>
+          </tr>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

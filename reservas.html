@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Pet - Reservas</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <div class="topo">
+    <div class="logo">Hotel Pet</div>
+    <div class="usuario">
+      <img src="img/avatar.png" alt="Foto do usuário">
+      <span>João da Silva</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="menu-lateral">
+      <ul>
+        <li><a href="pets.html">Pets</a></li>
+        <li><a href="reservas.html" class="ativo">Reservas</a></li>
+        <li><a href="usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+      </ul>
+    </div>
+
+    <div class="conteudo">
+
+      <p class="breadcrumb">Home / Reservas</p>
+
+      <div class="cartao">
+
+        <h2>Reservas</h2>
+
+        <a href="nova-reserva.html" class="botao-novo">+ Nova reserva</a>
+
+        <div class="pesquisa">
+
+          <div class="campo">
+            <label>Id</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>período</label>
+            <input type="date">
+            <input type="date">
+          </div>
+
+          <div class="campo">
+            <label>proprietário</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>Total</label>
+            <input type="text" value="R$ 0,00">
+            <input type="text" value="R$ 0,00">
+          </div>
+
+          <div class="campo">
+            <label>status</label>
+            <select>
+              <option></option>
+              <option>Reservada</option>
+              <option>Em progresso</option>
+              <option>Finalizada</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label>pet</label>
+            <input type="text">
+          </div>
+
+          <div class="pesquisa-botoes">
+            <button class="botao-azul">Pesquisar</button>
+            <button class="botao-branco">Limpar</button>
+          </div>
+
+        </div>
+
+        <table class="tabela">
+          <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Pet</th>
+            <th>chegada</th>
+            <th>partida</th>
+            <th>status</th>
+            <th>total</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>12349984501</td>
+            <td><a href="ver-pet.html">Max</a></td>
+            <td>02/05/2021</td>
+            <td>07/05/2020</td>
+            <td><span class="status reservada">Reservada</span></td>
+            <td>R$ 40,00</td>
+            <td><a href="editar-reserva.html">Editar</a> <a href="ver-reserva.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>12349984501</td>
+            <td>ginger</td>
+            <td>02/05/2021</td>
+            <td>07/05/2020</td>
+            <td><span class="status andamento">Em progresso</span></td>
+            <td>R$ 40,00</td>
+            <td><a href="editar-reserva.html">Editar</a> <a href="ver-reserva.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>12349984501</td>
+            <td>max</td>
+            <td>02/05/2021</td>
+            <td>07/05/2020</td>
+            <td><span class="status finalizada">Finalizada</span></td>
+            <td>R$ 40,00</td>
+            <td><a href="editar-reserva.html">Editar</a> <a href="ver-reserva.html">Visualizar</a></td>
+          </tr>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

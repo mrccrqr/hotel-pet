@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Pet - Pets</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <div class="topo">
+    <div class="logo">Hotel Pet</div>
+    <div class="usuario">
+      <img src="img/avatar.png" alt="Foto do usuário">
+      <span>João da Silva</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="menu-lateral">
+      <ul>
+        <li><a href="pets.html" class="ativo">Pets</a></li>
+        <li><a href="usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </div>
+
+    <div class="conteudo">
+
+      <p class="breadcrumb">Home / Pets</p>
+
+      <div class="cartao">
+
+        <h2>Pets</h2>
+
+        <a href="novo-pet.html" class="botao-novo">+ Novo Pet</a>
+
+        <div class="pesquisa">
+
+          <div class="campo">
+            <label>Id</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>raça</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>nome</label>
+            <input type="text">
+          </div>
+
+          <div class="campo">
+            <label>tamanho</label>
+            <input type="text">
+          </div>
+
+          <div class="pesquisa-botoes">
+            <button class="botao-azul">Pesquisar</button>
+            <button class="botao-branco">Limpar</button>
+          </div>
+
+        </div>
+
+        <table class="tabela">
+          <tr>
+            <th></th>
+            <th>Id</th>
+            <th>nome</th>
+            <th>tipo</th>
+            <th>raça</th>
+            <th>tamanho</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>12349984501</td>
+            <td>Max</td>
+            <td>Cachorro</td>
+            <td>Pastor Alemão</td>
+            <td>Grande</td>
+            <td><a href="editar-pet.html">Editar</a> <a href="ver-pet.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>12349984501</td>
+            <td>Ginger</td>
+            <td>Gato</td>
+            <td>Não definida</td>
+            <td>Pequeno</td>
+            <td><a href="editar-pet.html">Editar</a> <a href="ver-pet.html">Visualizar</a></td>
+          </tr>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

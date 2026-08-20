@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Pet - Ver pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <div class="topo">
+    <div class="logo">Hotel Pet</div>
+    <div class="usuario">
+      <img src="img/avatar.png" alt="Foto do usuário">
+      <span>João da Silva</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="menu-lateral">
+      <ul>
+        <li><a href="pets.html" class="ativo">Pets</a></li>
+        <li><a href="usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </div>
+
+    <div class="conteudo">
+
+      <p class="breadcrumb">Home / pets / ver pet</p>
+
+      <div class="cartao">
+
+        <h2>Ver pet</h2>
+
+        <div class="acoes-topo">
+          <a href="editar-pet.html" class="botao-branco">Editar</a>
+          <a href="#" class="botao-branco">Deletar</a>
+        </div>
+
+        <table class="detalhes">
+          <tr><td class="rotulo">Proprietário:</td><td>José da Silva</td></tr>
+          <tr><td class="rotulo">Id:</td><td>1234509876</td></tr>
+          <tr><td class="rotulo">Nome:</td><td>Max</td></tr>
+          <tr><td class="rotulo">Tipo:</td><td>Cachorro</td></tr>
+          <tr><td class="rotulo">Raça:</td><td>Pastor Alemão</td></tr>
+          <tr>
+            <td class="rotulo">Imagem:</td>
+            <td><img src="img/placeholder.png" alt="Imagem do pet" class="img-pet"></td>
+          </tr>
+          <tr>
+            <td class="rotulo">Reservas:</td>
+            <td>
+              <p class="reserva-completa">02/05/2021 - 07/05/2021 (completa)</p>
+              <p class="reserva-andamento">02/05/2021 - 07/05/2021 (em andamento)</p>
+            </td>
+          </tr>
+        </table>
+
+        <a href="pets.html" class="botao-voltar">← Voltar</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
