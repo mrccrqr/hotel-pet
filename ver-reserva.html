@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -29,33 +32,33 @@
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / reservas / ver reserva</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / <a href="reservas.html">reservas</a> / ver reserva</p>
 
       <div class="cartao">
 
         <h2>Ver reserva</h2>
 
+        <div class="acoes-topo">
+          <a href="#" id="link-editar" class="botao-branco">Editar</a>
+        </div>
+
         <table class="detalhes">
-          <tr><td class="rotulo">Id:</td><td>1234099871</td></tr>
-          <tr><td class="rotulo">Proprietário:</td><td>José da Silva</td></tr>
-          <tr><td class="rotulo">Pet:</td><td><a href="ver-pet.html">Max</a></td></tr>
-          <tr><td class="rotulo">Chegada:</td><td>02/05/2021</td></tr>
-          <tr><td class="rotulo">Partida:</td><td>07/05/2021</td></tr>
-          <tr><td class="rotulo">Notas:</td><td>Lorem ipsum ...</td></tr>
-          <tr><td class="rotulo">Anotações dos Funcionários:</td><td>Lorem ipsum ...</td></tr>
-          <tr>
+          <tr><td class="rotulo">Id:</td><td id="ver-id"></td></tr>
+          <tr><td class="rotulo">Proprietário:</td><td id="ver-proprietario"></td></tr>
+          <tr><td class="rotulo">Pet:</td><td id="ver-pet"></td></tr>
+          <tr><td class="rotulo">Chegada:</td><td id="ver-chegada"></td></tr>
+          <tr><td class="rotulo">Partida:</td><td id="ver-partida"></td></tr>
+          <tr><td class="rotulo">Notas:</td><td id="ver-notas"></td></tr>
+          <tr><td class="rotulo">Anotações dos Funcionários:</td><td id="ver-anotacoes"></td></tr>
+          <tr id="linha-imagens">
             <td class="rotulo">Imagens:</td>
-            <td>
-              <img src="img/placeholder.png" alt="Imagem" class="img-reserva">
-              <img src="img/placeholder.png" alt="Imagem" class="img-reserva">
-              <img src="img/placeholder.png" alt="Imagem" class="img-reserva">
-            </td>
+            <td id="ver-imagens"></td>
           </tr>
-          <tr><td class="rotulo">Status:</td><td><span class="status finalizada">Finalizada</span></td></tr>
-          <tr><td class="rotulo">Total das diárias:</td><td>R$ 40,00</td></tr>
-          <tr><td class="rotulo">Recibo:</td><td><a href="#">recibo.pdf</a></td></tr>
-          <tr><td class="rotulo">Criado em:</td><td>02/05/2021</td></tr>
-          <tr><td class="rotulo">Atualizado em:</td><td>07/05/2021</td></tr>
+          <tr><td class="rotulo">Status:</td><td id="ver-status"></td></tr>
+          <tr><td class="rotulo">Total das diárias:</td><td id="ver-total"></td></tr>
+          <tr id="linha-recibo"><td class="rotulo">Recibo:</td><td id="ver-recibo"></td></tr>
+          <tr><td class="rotulo">Criado em:</td><td id="ver-criado"></td></tr>
+          <tr><td class="rotulo">Atualizado em:</td><td id="ver-atualizado"></td></tr>
         </table>
 
         <a href="reservas.html" class="botao-voltar">← Voltar</a>
@@ -65,6 +68,10 @@
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/ver-reserva.js"></script>
 
 </body>
 </html>

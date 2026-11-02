@@ -16,11 +16,18 @@
 
     <h1>Hotel Pet</h1>
 
-    <form>
+    <p id="mensagem" class="mensagem" hidden></p>
 
-      <input type="text" placeholder="Login">
+    <form id="form-criar-conta">
 
-      <input type="password" placeholder="Senha">
+      <input type="text" id="login" placeholder="Email" autocomplete="username">
+
+      <div class="campo-senha">
+        <input type="password" id="senha" placeholder="Senha" autocomplete="new-password">
+        <button type="button" class="ver-senha" id="ver-senha" title="Mostrar senha" aria-label="Mostrar senha">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
 
       <input type="submit" value="Criar conta">
 
@@ -29,6 +36,10 @@
     <p class="login-criar"><a href="index.html">Já tem conta? Login</a></p>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/criar-conta.js"></script>
 
 </body>
 </html>

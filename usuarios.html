@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -29,7 +32,7 @@
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / Usuários</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / Usuários</p>
 
       <div class="cartao">
 
@@ -96,53 +99,33 @@
         </div>
 
         <table class="tabela">
-          <tr>
-            <th></th>
-            <th>Foto</th>
-            <th>email</th>
-            <th>nome</th>
-            <th>função</th>
-            <th>status</th>
-            <th>criado em</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td><img src="img/avatar.png" alt="Foto" class="foto-tabela"></td>
-            <td>joaodasilva@pet.com</td>
-            <td>João da Silva</td>
-            <td>Gerente</td>
-            <td><span class="status ativo">Ativo</span></td>
-            <td>19/02/2020</td>
-            <td><a href="novo-usuario.html">Editar</a> <a href="perfil.html">Visualizar</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td><img src="img/avatar.png" alt="Foto" class="foto-tabela"></td>
-            <td>maria@pet.com</td>
-            <td>Maria da Silva</td>
-            <td>Funcionário</td>
-            <td><span class="status inativo">Inativo</span></td>
-            <td>19/02/2020</td>
-            <td><a href="novo-usuario.html">Editar</a> <a href="perfil.html">Visualizar</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td><img src="img/avatar.png" alt="Foto" class="foto-tabela"></td>
-            <td>josedasilva@pet.com</td>
-            <td>José da Silva</td>
-            <td>Cliente</td>
-            <td><span class="status ativo">Ativo</span></td>
-            <td>19/02/2020</td>
-            <td><a href="novo-usuario.html">Editar</a> <a href="perfil.html">Visualizar</a></td>
-          </tr>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Foto</th>
+              <th>Id</th>
+              <th>email</th>
+              <th>nome</th>
+              <th>função</th>
+              <th>status</th>
+              <th>criado em</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lista-usuarios"></tbody>
         </table>
+
+        <p id="lista-vazia" class="lista-vazia" hidden>Nenhum usuário encontrado.</p>
 
       </div>
 
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/usuarios.js"></script>
 
 </body>
 </html>

@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -29,42 +32,54 @@
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / Editar Perfil</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / <span id="breadcrumb-atual">Editar Perfil</span></p>
 
       <div class="cartao">
 
-        <h2>Editar Perfil</h2>
+        <h2 id="titulo">Editar Perfil</h2>
 
-        <form>
+        <p id="mensagem" class="mensagem" hidden></p>
+
+        <form id="form-usuario">
 
           <div class="campo">
-            <label>Email *</label>
-            <input type="text" value="joaodasilva@pet.com">
+            <label for="usuario-email">Email *</label>
+            <input type="text" id="usuario-email">
           </div>
 
           <div class="campo">
-            <label>Nome *</label>
-            <input type="text" value="João">
+            <label for="usuario-nome">Nome *</label>
+            <input type="text" id="usuario-nome">
           </div>
 
           <div class="campo">
-            <label>Sobrenome</label>
-            <input type="text" value="da Silva">
+            <label for="usuario-sobrenome">Sobrenome</label>
+            <input type="text" id="usuario-sobrenome">
           </div>
 
           <div class="campo">
-            <label>Telefone *</label>
-            <input type="text" value="+55 (73) 99876-8943">
+            <label for="usuario-telefone">Telefone *</label>
+            <input type="text" id="usuario-telefone">
           </div>
 
           <div class="campo">
-            <label>Foto</label>
-            <input type="file">
+            <label for="usuario-funcao">Função</label>
+            <select id="usuario-funcao">
+              <option>Cliente</option>
+              <option>Funcionário</option>
+              <option>Gerente</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="usuario-foto">Foto</label>
+            <img src="img/avatar.png" alt="Foto do usuário" class="preview-avatar" id="preview-foto">
+            <input type="file" id="usuario-foto" accept="image/*">
           </div>
 
           <div class="form-botoes">
-            <button class="botao-salvar">Salvar</button>
-            <button class="botao-limpar">Limpar</button>
+            <button type="button" class="botao-salvar" id="botao-salvar">Salvar</button>
+            <button type="button" class="botao-limpar" id="botao-limpar">Limpar</button>
           </div>
 
         </form>
@@ -74,6 +89,10 @@
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/perfil.js"></script>
 
 </body>
 </html>

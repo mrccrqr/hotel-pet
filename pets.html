@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -29,7 +32,7 @@
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / Pets</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / Pets</p>
 
       <div class="cartao">
 
@@ -67,40 +70,31 @@
         </div>
 
         <table class="tabela">
-          <tr>
-            <th></th>
-            <th>Id</th>
-            <th>nome</th>
-            <th>tipo</th>
-            <th>raça</th>
-            <th>tamanho</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>12349984501</td>
-            <td>Max</td>
-            <td>Cachorro</td>
-            <td>Pastor Alemão</td>
-            <td>Grande</td>
-            <td><a href="editar-pet.html">Editar</a> <a href="ver-pet.html">Visualizar</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>12349984501</td>
-            <td>Ginger</td>
-            <td>Gato</td>
-            <td>Não definida</td>
-            <td>Pequeno</td>
-            <td><a href="editar-pet.html">Editar</a> <a href="ver-pet.html">Visualizar</a></td>
-          </tr>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Id</th>
+              <th>nome</th>
+              <th>tipo</th>
+              <th>raça</th>
+              <th>tamanho</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lista-pets"></tbody>
         </table>
+
+        <p id="lista-vazia" class="lista-vazia" hidden>Nenhum pet encontrado.</p>
 
       </div>
 
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/pets.js"></script>
 
 </body>
 </html>

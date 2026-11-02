@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -21,15 +24,15 @@
     <div class="menu-lateral">
       <ul>
         <li><a href="pets.html">Pets</a></li>
-        <li><a href="reservas.html" class="ativo">Reservas</a></li>
         <li><a href="usuarios.html">Usuários</a></li>
         <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="reservas.html" class="ativo">Reservas</a></li>
       </ul>
     </div>
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / Reservas</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / Reservas</p>
 
       <div class="cartao">
 
@@ -84,53 +87,32 @@
         </div>
 
         <table class="tabela">
-          <tr>
-            <th></th>
-            <th>Id</th>
-            <th>Pet</th>
-            <th>chegada</th>
-            <th>partida</th>
-            <th>status</th>
-            <th>total</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>12349984501</td>
-            <td><a href="ver-pet.html">Max</a></td>
-            <td>02/05/2021</td>
-            <td>07/05/2020</td>
-            <td><span class="status reservada">Reservada</span></td>
-            <td>R$ 40,00</td>
-            <td><a href="editar-reserva.html">Editar</a> <a href="ver-reserva.html">Visualizar</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>12349984501</td>
-            <td>ginger</td>
-            <td>02/05/2021</td>
-            <td>07/05/2020</td>
-            <td><span class="status andamento">Em progresso</span></td>
-            <td>R$ 40,00</td>
-            <td><a href="editar-reserva.html">Editar</a> <a href="ver-reserva.html">Visualizar</a></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>12349984501</td>
-            <td>max</td>
-            <td>02/05/2021</td>
-            <td>07/05/2020</td>
-            <td><span class="status finalizada">Finalizada</span></td>
-            <td>R$ 40,00</td>
-            <td><a href="editar-reserva.html">Editar</a> <a href="ver-reserva.html">Visualizar</a></td>
-          </tr>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Id</th>
+              <th>Pet</th>
+              <th>chegada</th>
+              <th>partida</th>
+              <th>status</th>
+              <th>total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lista-reservas"></tbody>
         </table>
+
+        <p id="lista-vazia" class="lista-vazia" hidden>Nenhuma reserva encontrada.</p>
 
       </div>
 
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/reservas.js"></script>
 
 </body>
 </html>

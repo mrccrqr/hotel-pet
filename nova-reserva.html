@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -29,35 +32,41 @@
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / reservas / nova reserva</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / <a href="reservas.html">reservas</a> / nova reserva</p>
 
       <div class="cartao">
 
         <h2>Fazer reserva</h2>
 
-        <form>
+        <p id="mensagem" class="mensagem" hidden></p>
+
+        <form id="form-reserva">
 
           <div class="campo">
-            <label>Pet *</label>
-            <input type="text" value="Max">
+            <label for="reserva-pet">Pet *</label>
+            <select id="reserva-pet">
+              <option value=""></option>
+            </select>
           </div>
 
           <div class="campo">
-            <label>Período *</label>
-            <input type="date">
-            <input type="date">
+            <label for="reserva-chegada">Período *</label>
+            <div class="periodo">
+              <input type="date" id="reserva-chegada" title="Chegada">
+              <input type="date" id="reserva-partida" title="Partida">
+            </div>
           </div>
 
           <div class="campo">
-            <label>Notas</label>
-            <textarea></textarea>
+            <label for="reserva-notas">Notas</label>
+            <textarea id="reserva-notas"></textarea>
           </div>
 
-          <p class="total">Total das diárias: <span>R$ 40,00</span></p>
+          <p class="total">Total das diárias: <span id="reserva-total">R$ 0,00</span></p>
 
           <div class="form-botoes">
-            <button class="botao-salvar">Salvar</button>
-            <button class="botao-limpar">Limpar</button>
+            <button type="button" class="botao-salvar" id="botao-salvar">Salvar</button>
+            <button type="button" class="botao-limpar" id="botao-limpar">Limpar</button>
           </div>
 
         </form>
@@ -67,6 +76,10 @@
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/nova-reserva.js"></script>
 
 </body>
 </html>

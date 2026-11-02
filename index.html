@@ -16,15 +16,22 @@
 
     <h1>Hotel Pet</h1>
 
-    <form>
+    <p id="mensagem" class="mensagem" hidden></p>
 
-      <input type="text" placeholder="Login">
+    <form id="form-login">
 
-      <input type="password" placeholder="Senha">
+      <input type="text" id="login" placeholder="Email" autocomplete="username">
+
+      <div class="campo-senha">
+        <input type="password" id="senha" placeholder="Senha" autocomplete="current-password">
+        <button type="button" class="ver-senha" id="ver-senha" title="Mostrar senha" aria-label="Mostrar senha">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
 
       <div class="login-opcoes">
-        <label><input type="checkbox"> matenha-me conectado</label>
-        <a href="#">Esqueci a senha</a>
+        <label><input type="checkbox" id="manter-conectado"> mantenha-me conectado</label>
+        <a href="#" id="esqueci-senha">Esqueci a senha</a>
       </div>
 
       <input type="submit" value="Enviar">
@@ -34,14 +41,18 @@
     <p class="divisor">ou</p>
 
     <div class="login-social">
-      <a href="#">f</a>
-      <a href="#">t</a>
-      <a href="#">g</a>
+      <a href="#" class="social" title="Entrar com Facebook">f</a>
+      <a href="#" class="social" title="Entrar com Twitter">t</a>
+      <a href="#" class="social" title="Entrar com Google">g</a>
     </div>
 
     <p class="login-criar"><a href="criar-conta.html">Criar uma conta</a></p>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/login.js"></script>
 
 </body>
 </html>

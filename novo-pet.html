@@ -11,8 +11,11 @@
   <div class="topo">
     <div class="logo">Hotel Pet</div>
     <div class="usuario">
-      <img src="img/avatar.png" alt="Foto do usuário">
-      <span>João da Silva</span>
+      <a href="perfil.html" class="usuario-link" title="Editar perfil">
+        <img src="img/avatar.png" alt="Foto do usuário" id="foto-usuario">
+        <span id="nome-usuario">João da Silva</span>
+      </a>
+      <a href="#" id="sair" class="sair">Sair</a>
     </div>
   </div>
 
@@ -29,31 +32,35 @@
 
     <div class="conteudo">
 
-      <p class="breadcrumb">Home / Pet / Novo Pet</p>
+      <p class="breadcrumb"><a href="reservas.html">Home</a> / <a href="pets.html">Pet</a> / Novo Pet</p>
 
       <div class="cartao">
 
         <h2>Novo Pet</h2>
 
-        <form>
+        <p id="mensagem" class="mensagem" hidden></p>
+
+        <form id="form-pet">
 
           <div class="form-pet">
 
             <div class="form-campos">
 
               <div class="campo">
-                <label>Proprietário *</label>
-                <input type="text">
+                <label for="pet-dono">Proprietário *</label>
+                <select id="pet-dono">
+                  <option value=""></option>
+                </select>
               </div>
 
               <div class="campo">
-                <label>Nome *</label>
-                <input type="text">
+                <label for="pet-nome">Nome *</label>
+                <input type="text" id="pet-nome">
               </div>
 
               <div class="campo">
-                <label>Tipo *</label>
-                <select>
+                <label for="pet-tipo">Tipo *</label>
+                <select id="pet-tipo">
                   <option></option>
                   <option>Cachorro</option>
                   <option>Gato</option>
@@ -61,13 +68,13 @@
               </div>
 
               <div class="campo">
-                <label>Raça *</label>
-                <input type="text">
+                <label for="pet-raca">Raça *</label>
+                <input type="text" id="pet-raca">
               </div>
 
               <div class="campo">
-                <label>Tamanho *</label>
-                <select>
+                <label for="pet-tamanho">Tamanho *</label>
+                <select id="pet-tamanho">
                   <option></option>
                   <option>Pequeno</option>
                   <option>Médio</option>
@@ -78,15 +85,16 @@
             </div>
 
             <div class="form-imagem">
-              <label>Imagem</label>
-              <img src="img/placeholder.png" alt="Imagem do pet">
+              <label for="pet-foto">Imagem</label>
+              <img src="img/placeholder.png" alt="Imagem do pet" id="preview-foto">
+              <input type="file" id="pet-foto" accept="image/*" class="input-imagem">
             </div>
 
           </div>
 
           <div class="form-botoes">
-            <button class="botao-salvar">Salvar</button>
-            <button class="botao-limpar">Limpar</button>
+            <button type="button" class="botao-salvar" id="botao-salvar">Salvar</button>
+            <button type="button" class="botao-limpar" id="botao-limpar">Limpar</button>
           </div>
 
         </form>
@@ -96,6 +104,10 @@
     </div>
 
   </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/novo-pet.js"></script>
 
 </body>
 </html>
