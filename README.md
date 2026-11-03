@@ -34,7 +34,7 @@ Também é possível criar uma conta nova pela tela "Criar uma conta". Marcando 
 ## Etapas da Web II
 
 - [x] **Etapa 1, Navegação:** login e criar conta, proteção das telas internas, botão sair, topo com o usuário logado (levando ao perfil), tabelas montadas a partir dos dados salvos e telas de visualizar e editar abrindo o item certo pelo id.
-- [ ] **Etapa 2, Buscas:** filtros de pesquisa nas telas de reservas, pets e usuários.
+- [x] **Etapa 2, Buscas:** os campos de pesquisa de reservas, pets e usuários agora filtram a tabela (dá pra buscar sem acento e apertar Enter pra pesquisar). O Limpar volta a lista completa e em usuários o "Visualizar Por: Função" separa a lista por função.
 - [ ] **Etapa 3, Tabelas:** cadastrar, editar, remover e mudar status dos itens.
 
 ## Telas

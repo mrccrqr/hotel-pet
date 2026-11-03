@@ -40,34 +40,39 @@
 
         <a href="novo-pet.html" class="botao-novo">+ Novo Pet</a>
 
-        <div class="pesquisa">
+        <form class="pesquisa" id="form-pesquisa">
 
           <div class="campo">
-            <label>Id</label>
-            <input type="text">
+            <label for="busca-id">Id</label>
+            <input type="text" id="busca-id">
           </div>
 
           <div class="campo">
-            <label>raça</label>
-            <input type="text">
+            <label for="busca-raca">raça</label>
+            <input type="text" id="busca-raca">
           </div>
 
           <div class="campo">
-            <label>nome</label>
-            <input type="text">
+            <label for="busca-nome">nome</label>
+            <input type="text" id="busca-nome">
           </div>
 
           <div class="campo">
-            <label>tamanho</label>
-            <input type="text">
+            <label for="busca-tamanho">tamanho</label>
+            <select id="busca-tamanho">
+              <option></option>
+              <option>Pequeno</option>
+              <option>Médio</option>
+              <option>Grande</option>
+            </select>
           </div>
 
           <div class="pesquisa-botoes">
-            <button class="botao-azul">Pesquisar</button>
-            <button class="botao-branco">Limpar</button>
+            <button type="submit" class="botao-azul">Pesquisar</button>
+            <button type="button" class="botao-branco" id="limpar-pesquisa">Limpar</button>
           </div>
 
-        </div>
+        </form>
 
         <table class="tabela">
           <thead>

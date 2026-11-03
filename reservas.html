@@ -40,51 +40,56 @@
 
         <a href="nova-reserva.html" class="botao-novo">+ Nova reserva</a>
 
-        <div class="pesquisa">
+        <form class="pesquisa" id="form-pesquisa">
 
           <div class="campo">
-            <label>Id</label>
-            <input type="text">
+            <label for="busca-id">Id</label>
+            <input type="text" id="busca-id">
           </div>
 
           <div class="campo">
-            <label>período</label>
-            <input type="date">
-            <input type="date">
+            <label for="busca-inicio">período</label>
+            <div class="periodo">
+              <input type="date" id="busca-inicio" title="De">
+              <input type="date" id="busca-fim" title="Até">
+            </div>
           </div>
 
           <div class="campo">
-            <label>proprietário</label>
-            <input type="text">
+            <label for="busca-proprietario">proprietário</label>
+            <input type="text" id="busca-proprietario">
           </div>
 
           <div class="campo">
-            <label>Total</label>
-            <input type="text" value="R$ 0,00">
-            <input type="text" value="R$ 0,00">
+            <label for="busca-total-min">Total</label>
+            <div class="periodo">
+              <input type="text" id="busca-total-min" placeholder="R$ 0,00" title="Mínimo">
+              <input type="text" id="busca-total-max" placeholder="R$ 0,00" title="Máximo">
+            </div>
           </div>
 
           <div class="campo">
-            <label>status</label>
-            <select>
+            <label for="busca-status">status</label>
+            <select id="busca-status">
               <option></option>
               <option>Reservada</option>
-              <option>Em progresso</option>
+              <option>Em andamento</option>
               <option>Finalizada</option>
+              <option>Cancelada</option>
             </select>
           </div>
 
           <div class="campo">
-            <label>pet</label>
-            <input type="text">
+            <label for="busca-pet">pet</label>
+            <input type="text" id="busca-pet">
           </div>
 
           <div class="pesquisa-botoes">
-            <button class="botao-azul">Pesquisar</button>
-            <button class="botao-branco">Limpar</button>
+            <button type="submit" class="botao-azul">Pesquisar</button>
+            <button type="button" class="botao-branco" id="limpar-pesquisa">Limpar</button>
           </div>
 
-        </div>
+        </form>
 
         <table class="tabela">
           <thead>

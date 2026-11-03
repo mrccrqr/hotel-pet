@@ -45,36 +45,38 @@
         </div>
 
         <p class="visualizar-por">Visualizar Por:
-          <a href="#" class="tag-ativa">Usuários</a>
-          <a href="#" class="tag">Função</a>
+          <a href="#" class="tag-ativa" id="ver-por-usuarios">Usuários</a>
+          <a href="#" class="tag" id="ver-por-funcao">Função</a>
         </p>
 
-        <div class="pesquisa">
+        <form class="pesquisa" id="form-pesquisa">
 
           <div class="campo">
-            <label>Id</label>
-            <input type="text">
+            <label for="busca-id">Id</label>
+            <input type="text" id="busca-id">
           </div>
 
           <div class="campo">
-            <label>criado em</label>
-            <input type="date">
-            <input type="date">
+            <label for="busca-inicio">criado em</label>
+            <div class="periodo">
+              <input type="date" id="busca-inicio" title="De">
+              <input type="date" id="busca-fim" title="Até">
+            </div>
           </div>
 
           <div class="campo">
-            <label>email</label>
-            <input type="text">
+            <label for="busca-email">email</label>
+            <input type="text" id="busca-email">
           </div>
 
           <div class="campo">
-            <label>nome</label>
-            <input type="text">
+            <label for="busca-nome">nome</label>
+            <input type="text" id="busca-nome">
           </div>
 
           <div class="campo">
-            <label>status</label>
-            <select>
+            <label for="busca-status">status</label>
+            <select id="busca-status">
               <option></option>
               <option>Ativo</option>
               <option>Inativo</option>
@@ -82,8 +84,8 @@
           </div>
 
           <div class="campo">
-            <label>função</label>
-            <select>
+            <label for="busca-funcao">função</label>
+            <select id="busca-funcao">
               <option></option>
               <option>Cliente</option>
               <option>Funcionário</option>
@@ -92,11 +94,11 @@
           </div>
 
           <div class="pesquisa-botoes">
-            <button class="botao-azul">Pesquisar</button>
-            <button class="botao-branco">Limpar</button>
+            <button type="submit" class="botao-azul">Pesquisar</button>
+            <button type="button" class="botao-branco" id="limpar-pesquisa">Limpar</button>
           </div>
 
-        </div>
+        </form>
 
         <table class="tabela">
           <thead>

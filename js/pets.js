@@ -23,4 +23,33 @@ function mostrarPets(pets) {
     document.getElementById('lista-vazia').hidden = pets.length > 0;
 }
 
+// ---------- busca ----------
+
+function pesquisar() {
+    const id = document.getElementById('busca-id').value.trim();
+    const raca = document.getElementById('busca-raca').value.trim();
+    const nome = document.getElementById('busca-nome').value.trim();
+    const tamanho = document.getElementById('busca-tamanho').value;
+
+    const resultado = listar('pets').filter(function (pet) {
+        if (id !== '' && String(pet.id) !== id) return false;
+        if (!contem(pet.raca, raca)) return false;
+        if (!contem(pet.nome, nome)) return false;
+        if (tamanho !== '' && pet.tamanho !== tamanho) return false;
+        return true;
+    });
+
+    mostrarPets(resultado);
+}
+
+document.getElementById('form-pesquisa').addEventListener('submit', function (evento) {
+    evento.preventDefault();
+    pesquisar();
+});
+
+document.getElementById('limpar-pesquisa').addEventListener('click', function () {
+    document.getElementById('form-pesquisa').reset();
+    mostrarPets(listar('pets'));
+});
+
 mostrarPets(listar('pets'));

@@ -694,3 +694,16 @@ a.botao-limpar {
 .reserva-item.andamento { color: #52b788; }
 .reserva-item.reservada { color: #2a9d8f; }
 .reserva-item.cancelada { color: #8d8d8d; }
+
+/* etapa 2: a pesquisa virou form, entao tira o limite de largura dos forms do cartao */
+.cartao form.pesquisa {
+    max-width: none;
+}
+
+/* titulo de cada funcao no "Visualizar Por: Função" */
+.tabela tr.grupo td {
+    background-color: #e6f4f2;
+    color: #2a9d8f;
+    font-weight: bold;
+    padding: 8px 12px;
+}

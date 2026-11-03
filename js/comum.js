@@ -57,6 +57,26 @@ function mostrarNaoEncontrado(texto, voltarPara) {
         '<a href="' + voltarPara + '" class="botao-voltar">← Voltar</a>';
 }
 
+// deixa o texto minusculo e sem acento, assim "pacoca" acha "Paçoca"
+function normalizar(texto) {
+    return texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+
+// true se o texto tiver o que foi digitado na busca (busca vazia aceita tudo)
+function contem(texto, busca) {
+    return normalizar(texto).includes(normalizar(busca));
+}
+
+// transforma o que o usuario digitou em numero: 'R$ 12,50' vira 12.5
+// se ficar vazio ou nao for numero devolve null
+function lerValor(texto) {
+    const limpo = texto.replace('R$', '').replace(',', '.').trim();
+    if (limpo === '' || isNaN(limpo)) {
+        return null;
+    }
+    return Number(limpo);
+}
+
 // coloca os pets como opcoes de um select. Ex: "Max (José da Silva)"
 function preencherSelectPets(select) {
     listar('pets').forEach(function (pet) {
