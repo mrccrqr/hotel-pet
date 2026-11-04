@@ -1,8 +1,18 @@
 // reservas.js - lista de reservas
 
+// valor de cada coluna pra ordenar (o pet ordena pelo nome, nao pelo id)
+function valorDaColuna(reserva, campo) {
+    if (campo === 'pet') {
+        return buscarPorId('pets', reserva.petId).nome;
+    }
+    return reserva[campo];
+}
+
 function mostrarReservas(reservas) {
     const tabela = document.getElementById('lista-reservas');
     tabela.innerHTML = '';
+
+    reservas = ordenar(reservas, valorDaColuna);
 
     reservas.forEach(function (reserva) {
         const pet = buscarPorId('pets', reserva.petId);
@@ -77,5 +87,8 @@ document.getElementById('limpar-pesquisa').addEventListener('click', function ()
     document.getElementById('form-pesquisa').reset();
     mostrarReservas(listar('reservas'));
 });
+
+// clicar no titulo da coluna ordena (e mantem a busca que estiver feita)
+configurarOrdenacao(pesquisar);
 
 mostrarReservas(listar('reservas'));

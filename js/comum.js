@@ -101,6 +101,118 @@ function preencherSelectUsuarios(select, idDono) {
     });
 }
 
+// guarda um aviso pra mostrar na proxima tela (ex: "Pet salvo!" depois de voltar pra lista)
+function avisarNaProximaTela(texto) {
+    sessionStorage.setItem('aviso', texto);
+}
+
+// le a foto escolhida no input file e diminui ela antes de salvar,
+// senao uma foto de celular sozinha ja enche o localStorage
+function lerImagem(arquivo, quandoTerminar) {
+    const leitor = new FileReader();
+    leitor.onload = function () {
+        const img = new Image();
+        img.onload = function () {
+            const maximo = 400; // lado maior fica com no maximo 400px
+            let largura = img.width;
+            let altura = img.height;
+            if (largura > maximo || altura > maximo) {
+                if (largura > altura) {
+                    altura = Math.round(altura * maximo / largura);
+                    largura = maximo;
+                } else {
+                    largura = Math.round(largura * maximo / altura);
+                    altura = maximo;
+                }
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = largura;
+            canvas.height = altura;
+            canvas.getContext('2d').drawImage(img, 0, 0, largura, altura);
+            quandoTerminar(canvas.toDataURL('image/jpeg', 0.8));
+        };
+        img.src = leitor.result;
+    };
+    leitor.readAsDataURL(arquivo);
+}
+
+// quantas diarias tem entre a chegada e a partida (02/05 ate 06/05 = 4 diarias)
+function contarDiarias(chegada, partida) {
+    const umDia = 24 * 60 * 60 * 1000;
+    return Math.round((new Date(partida) - new Date(chegada)) / umDia);
+}
+
+function calcularTotal(chegada, partida) {
+    return contarDiarias(chegada, partida) * pegarConfiguracoes().diaria;
+}
+
+// confere se tem vaga em todos os dias do periodo.
+// so contam as reservas Reservada e Em andamento. idIgnorar e a propria reserva quando ta editando
+// devolve a data que lotou, ou null se tiver vaga
+function diaSemVaga(chegada, partida, idIgnorar) {
+    const vagas = pegarConfiguracoes().vagas;
+    const ativas = listar('reservas').filter(function (r) {
+        return r.id != idIgnorar && (r.status === 'Reservada' || r.status === 'Em andamento');
+    });
+
+    const dia = new Date(chegada);
+    const fim = new Date(partida);
+    while (dia < fim) {
+        const hoje = dia.toISOString().slice(0, 10);
+        // reservas que tem o pet no hotel nessa noite
+        const ocupadas = ativas.filter(function (r) {
+            return r.chegada <= hoje && r.partida > hoje;
+        }).length;
+        if (ocupadas >= vagas) {
+            return hoje;
+        }
+        dia.setUTCDate(dia.getUTCDate() + 1); // proximo dia
+    }
+    return null;
+}
+
+// ordenacao das tabelas clicando no titulo da coluna (as setinhas do Figma)
+// guarda qual coluna ta ordenando e se e crescente ou decrescente
+let ordem = { campo: '', crescente: true };
+
+function configurarOrdenacao(quandoMudar) {
+    document.querySelectorAll('th.ordenavel').forEach(function (th) {
+        th.addEventListener('click', function () {
+            if (ordem.campo === th.dataset.campo) {
+                ordem.crescente = !ordem.crescente; // clicou de novo: inverte
+            } else {
+                ordem.campo = th.dataset.campo;
+                ordem.crescente = true;
+            }
+            // tira a seta das outras colunas e coloca nessa
+            document.querySelectorAll('th.ordenavel').forEach(function (outro) {
+                outro.classList.remove('crescente', 'decrescente');
+            });
+            th.classList.add(ordem.crescente ? 'crescente' : 'decrescente');
+            quandoMudar();
+        });
+    });
+}
+
+// ordena a lista pela coluna escolhida. pegarValor diz qual valor usar de cada item
+function ordenar(lista, pegarValor) {
+    if (ordem.campo === '') {
+        return lista;
+    }
+    return lista.slice().sort(function (a, b) {
+        let x = pegarValor(a, ordem.campo);
+        let y = pegarValor(b, ordem.campo);
+        if (typeof x === 'string') {
+            x = normalizar(x);
+            y = normalizar(y);
+        }
+        let resultado = 0;
+        if (x < y) resultado = -1;
+        if (x > y) resultado = 1;
+        return ordem.crescente ? resultado : -resultado;
+    });
+}
+
 // botao do olho que mostra ou esconde a senha (login e criar conta)
 function configurarVerSenha() {
     const botao = document.getElementById('ver-senha');
@@ -133,6 +245,13 @@ if (!document.body.classList.contains('tela-login')) {
         document.getElementById('nome-usuario').textContent = nomeCompleto(usuarioAtual);
         if (usuarioAtual.foto) {
             document.getElementById('foto-usuario').src = usuarioAtual.foto;
+        }
+
+        // se a tela anterior deixou algum aviso, mostra aqui
+        const aviso = sessionStorage.getItem('aviso');
+        if (aviso && document.getElementById('mensagem')) {
+            mostrarMensagem(aviso, 'sucesso');
+            sessionStorage.removeItem('aviso');
         }
 
         document.getElementById('sair').addEventListener('click', function (evento) {

@@ -38,6 +38,8 @@
 
         <h2>Reservas</h2>
 
+        <p id="mensagem" class="mensagem" hidden></p>
+
         <a href="nova-reserva.html" class="botao-novo">+ Nova reserva</a>
 
         <form class="pesquisa" id="form-pesquisa">
@@ -95,12 +97,12 @@
           <thead>
             <tr>
               <th></th>
-              <th>Id</th>
-              <th>Pet</th>
-              <th>chegada</th>
-              <th>partida</th>
-              <th>status</th>
-              <th>total</th>
+              <th class="ordenavel" data-campo="id">Id</th>
+              <th class="ordenavel" data-campo="pet">Pet</th>
+              <th class="ordenavel" data-campo="chegada">chegada</th>
+              <th class="ordenavel" data-campo="partida">partida</th>
+              <th class="ordenavel" data-campo="status">status</th>
+              <th class="ordenavel" data-campo="total">total</th>
               <th></th>
             </tr>
           </thead>

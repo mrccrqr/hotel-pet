@@ -27,6 +27,12 @@ function mostrarUsuarios(usuarios) {
     const tabela = document.getElementById('lista-usuarios');
     tabela.innerHTML = '';
 
+    usuarios = ordenar(usuarios, function (usuario, campo) {
+        if (campo === 'nome') return nomeCompleto(usuario);
+        return usuario[campo];
+    });
+    document.getElementById('marcar-todos').checked = false;
+
     if (verPorFuncao) {
         // um titulo pra cada funcao e embaixo os usuarios dela
         ['Gerente', 'Funcionário', 'Cliente'].forEach(function (funcao) {
@@ -104,5 +110,112 @@ botaoFuncao.addEventListener('click', function (evento) {
     botaoUsuarios.className = 'tag';
     pesquisar();
 });
+
+// ---------- remover e mudar status (usuarios marcados no checkbox) ----------
+
+function pegarMarcados() {
+    const marcados = [];
+    document.querySelectorAll('#lista-usuarios input[type=checkbox]:checked').forEach(function (caixa) {
+        marcados.push(Number(caixa.value));
+    });
+    return marcados;
+}
+
+// checkbox do titulo marca ou desmarca todos
+document.getElementById('marcar-todos').addEventListener('change', function () {
+    const marcar = this.checked;
+    document.querySelectorAll('#lista-usuarios input[type=checkbox]').forEach(function (caixa) {
+        caixa.checked = marcar;
+    });
+});
+
+document.getElementById('botao-remover').addEventListener('click', function () {
+    const marcados = pegarMarcados();
+    if (marcados.length === 0) {
+        mostrarMensagem('Marque pelo menos um usuário pra remover.', 'aviso');
+        return;
+    }
+
+    // nao deixa o gerente apagar a propria conta
+    if (marcados.includes(usuarioAtual.id)) {
+        mostrarMensagem('Você não pode remover a sua própria conta.');
+        return;
+    }
+
+    // quem tem pet cadastrado nao pode ser removido, senao o pet fica sem dono
+    const pets = listar('pets');
+    const comPet = marcados.filter(function (id) {
+        return pets.some(function (pet) { return pet.donoId === id; });
+    });
+    if (comPet.length > 0) {
+        const nomes = comPet.map(function (id) { return nomeCompleto(buscarPorId('usuarios', id)); });
+        mostrarMensagem('Não dá pra remover quem tem pet cadastrado: ' + nomes.join(', ') + '. Troque o dono do pet ou apague o pet antes.');
+        return;
+    }
+
+    if (!confirm('Remover ' + marcados.length + ' usuário(s)?')) {
+        return;
+    }
+
+    const restantes = listar('usuarios').filter(function (usuario) {
+        return !marcados.includes(usuario.id);
+    });
+    salvar('usuarios', restantes);
+    mostrarMensagem(marcados.length + ' usuário(s) removido(s).', 'sucesso');
+    pesquisar();
+});
+
+// o "Mudar status" abre um painel perguntando se e pra ativar ou desativar
+const painelStatus = document.getElementById('painel-status');
+
+document.getElementById('botao-mudar-status').addEventListener('click', function () {
+    const marcados = pegarMarcados();
+    if (marcados.length === 0) {
+        mostrarMensagem('Marque pelo menos um usuário pra mudar o status.', 'aviso');
+        return;
+    }
+    document.getElementById('texto-painel-status').textContent = marcados.length + ' usuário(s) marcado(s). Mudar para:';
+    painelStatus.hidden = false;
+});
+
+function mudarStatus(novoStatus) {
+    let marcados = pegarMarcados();
+
+    // o proprio gerente nao pode se desativar, senao perde o acesso
+    let ficouDeFora = '';
+    if (novoStatus === 'Inativo' && marcados.includes(usuarioAtual.id)) {
+        ficouDeFora = ' A sua conta ficou de fora.';
+        marcados = marcados.filter(function (id) { return id !== usuarioAtual.id; });
+        if (marcados.length === 0) {
+            mostrarMensagem('Você não pode desativar a sua própria conta.');
+            painelStatus.hidden = true;
+            return;
+        }
+    }
+
+    const usuarios = listar('usuarios');
+    usuarios.forEach(function (usuario) {
+        if (marcados.includes(usuario.id)) {
+            usuario.status = novoStatus;
+        }
+    });
+    salvar('usuarios', usuarios);
+
+    painelStatus.hidden = true;
+    mostrarMensagem(marcados.length + ' usuário(s) agora ' + (novoStatus === 'Ativo' ? 'ativo(s)' : 'inativo(s)') + '.' + ficouDeFora, 'sucesso');
+    pesquisar();
+}
+
+document.getElementById('status-ativar').addEventListener('click', function () {
+    mudarStatus('Ativo');
+});
+document.getElementById('status-desativar').addEventListener('click', function () {
+    mudarStatus('Inativo');
+});
+document.getElementById('status-cancelar').addEventListener('click', function () {
+    painelStatus.hidden = true;
+});
+
+configurarOrdenacao(pesquisar);
 
 mostrarUsuarios(listar('usuarios'));

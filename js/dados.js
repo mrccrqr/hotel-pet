@@ -39,8 +39,15 @@ function listar(nome) {
 }
 
 // salva a lista inteira de volta no localStorage
+// o localStorage tem limite (uns 5MB), se encher com muita foto da erro aqui
 function salvar(nome, lista) {
-    localStorage.setItem(nome, JSON.stringify(lista));
+    try {
+        localStorage.setItem(nome, JSON.stringify(lista));
+        return true;
+    } catch (erro) {
+        alert('Não deu pra salvar: o espaço do navegador acabou. Tente usar imagens menores.');
+        return false;
+    }
 }
 
 // procura um item pelo id dentro de uma lista

@@ -29,13 +29,18 @@ Use o email de um usuário **ativo** e qualquer senha (sem backend a senha não 
 | josedasilva@pet.com | Cliente | Ativo |
 | maria@pet.com | Funcionário | Inativo (não consegue entrar) |
 
-Também é possível criar uma conta nova pela tela "Criar uma conta". Marcando "mantenha-me conectado", o login continua mesmo depois de fechar o navegador.
+Também dá pra criar uma conta nova pela tela "Criar uma conta". Marcando "mantenha-me conectado", o login continua mesmo depois de fechar o navegador.
 
 ## Etapas da Web II
 
 - [x] **Etapa 1, Navegação:** login e criar conta, proteção das telas internas, botão sair, topo com o usuário logado (levando ao perfil), tabelas montadas a partir dos dados salvos e telas de visualizar e editar abrindo o item certo pelo id.
 - [x] **Etapa 2, Buscas:** os campos de pesquisa de reservas, pets e usuários agora filtram a tabela (dá pra buscar sem acento e apertar Enter pra pesquisar). O Limpar volta a lista completa e em usuários o "Visualizar Por: Função" separa a lista por função.
-- [ ] **Etapa 3, Tabelas:** cadastrar, editar, remover e mudar status dos itens.
+- [x] **Etapa 3, Tabelas:** agora dá pra cadastrar, editar e apagar de verdade.
+  - Pets: cadastrar, editar, trocar a foto e deletar (deletar um pet apaga as reservas dele junto).
+  - Reservas: o total é calculado sozinho pelas diárias x valor da diária, e não deixa reservar se as vagas do período já estiverem ocupadas. Na edição os campos mudam com o status, igual no Figma: em andamento aparecem as anotações e as imagens, finalizada aparece o botão da nota fiscal. O gerente pode editar reserva finalizada.
+  - Usuários: cadastrar, editar (inclusive a função), remover e mudar status dos marcados. Quem tem pet não pode ser removido e o gerente não consegue remover ou desativar a própria conta.
+  - Perfil e configurações salvando.
+  - Clicando no título das colunas das tabelas ordena (clicando de novo inverte).
 
 ## Telas
 

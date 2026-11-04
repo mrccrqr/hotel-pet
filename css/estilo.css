@@ -707,3 +707,82 @@ a.botao-limpar {
     font-weight: bold;
     padding: 8px 12px;
 }
+
+/* etapa 3 */
+
+/* titulos das colunas que ordenam (setinha igual no Figma) */
+.tabela th.ordenavel {
+    cursor: pointer;
+    user-select: none;
+}
+
+.tabela th.ordenavel::after {
+    content: ' ↓';
+    color: #c5c5c5;
+}
+
+.tabela th.ordenavel.crescente::after {
+    content: ' ↓';
+    color: #2a9d8f;
+}
+
+.tabela th.ordenavel.decrescente::after {
+    content: ' ↑';
+    color: #2a9d8f;
+}
+
+/* painel que aparece no "Mudar status" */
+.painel-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #2a9d8f;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+}
+
+.painel-status[hidden] {
+    display: none;
+}
+
+/* imagens da reserva: clicar remove */
+.img-removivel {
+    cursor: pointer;
+}
+
+.img-removivel:hover {
+    opacity: 0.6;
+    border-color: #e76f51 !important;
+}
+
+.dica {
+    font-size: 12px;
+    color: #888888;
+    margin: -8px 0 15px 0;
+}
+
+/* botao roxo da nota fiscal (Figma) */
+.botao-nota {
+    background-color: #9b59b6;
+    color: #ffffff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao-nota:hover {
+    background-color: #84479e;
+}
+
+.recibo-atual {
+    font-size: 14px;
+    margin: 10px 0 0 0;
+}
+
+.recibo-atual a {
+    color: #2a9d8f;
+}

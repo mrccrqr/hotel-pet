@@ -44,4 +44,29 @@ if (!pet) {
                 '</a>' +
             '</p>';
     });
+
+    // deletar apaga o pet e todas as reservas dele junto
+    document.getElementById('botao-deletar').addEventListener('click', function (evento) {
+        evento.preventDefault();
+
+        let pergunta = 'Deletar o pet ' + pet.nome + '?';
+        if (reservasDoPet.length > 0) {
+            pergunta += '\nAs ' + reservasDoPet.length + ' reserva(s) dele também vão ser apagadas.';
+        }
+        if (!confirm(pergunta)) {
+            return;
+        }
+
+        const pets = listar('pets').filter(function (item) {
+            return item.id !== pet.id;
+        });
+        const reservas = listar('reservas').filter(function (reserva) {
+            return reserva.petId !== pet.id;
+        });
+        salvar('pets', pets);
+        salvar('reservas', reservas);
+
+        avisarNaProximaTela('Pet ' + pet.nome + ' deletado.');
+        window.location.href = 'pets.html';
+    });
 }

@@ -77,16 +77,26 @@
             </select>
           </div>
 
-          <div class="campo">
-            <label for="reserva-anotacoes">Anotações do funcionário</label>
-            <textarea id="reserva-anotacoes"></textarea>
-          </div>
+          <div id="area-andamento">
+            <div class="campo">
+              <label for="reserva-anotacoes">Anotações do funcionário</label>
+              <textarea id="reserva-anotacoes"></textarea>
+            </div>
 
-          <div class="imagens-reserva" id="reserva-imagens">
-            <a href="#" class="add-imagem" id="add-imagem" title="Adicionar imagem">+</a>
+            <div class="imagens-reserva" id="reserva-imagens">
+              <a href="#" class="add-imagem" id="add-imagem" title="Adicionar imagem">+</a>
+            </div>
+            <p class="dica">Clique numa imagem para remover.</p>
+            <input type="file" id="input-imagem" accept="image/*" hidden>
           </div>
 
           <p class="total">Total das diárias: <span id="reserva-total">R$ 0,00</span></p>
+
+          <div id="area-finalizada">
+            <button type="button" class="botao-nota" id="botao-nota">Adicionar nota fiscal</button>
+            <input type="file" id="input-recibo" accept=".pdf,image/*" hidden>
+            <p id="recibo-atual" class="recibo-atual"></p>
+          </div>
 
           <div class="form-botoes">
             <button type="button" class="botao-salvar" id="botao-salvar">Salvar</button>

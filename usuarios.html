@@ -38,10 +38,19 @@
 
         <h2>Usuários</h2>
 
+        <p id="mensagem" class="mensagem" hidden></p>
+
         <div class="acoes-topo">
           <a href="novo-usuario.html" class="botao-novo">novo</a>
-          <button class="botao-branco">Remover</button>
-          <button class="botao-branco">Mudar status</button>
+          <button type="button" class="botao-branco" id="botao-remover">Remover</button>
+          <button type="button" class="botao-branco" id="botao-mudar-status">Mudar status</button>
+        </div>
+
+        <div class="painel-status" id="painel-status" hidden>
+          <span id="texto-painel-status"></span>
+          <button type="button" class="botao-azul" id="status-ativar">Ativar</button>
+          <button type="button" class="botao-branco" id="status-desativar">Desativar</button>
+          <button type="button" class="botao-branco" id="status-cancelar">Cancelar</button>
         </div>
 
         <p class="visualizar-por">Visualizar Por:
@@ -103,14 +112,14 @@
         <table class="tabela">
           <thead>
             <tr>
-              <th></th>
+              <th><input type="checkbox" id="marcar-todos" title="Marcar todos"></th>
               <th>Foto</th>
-              <th>Id</th>
-              <th>email</th>
-              <th>nome</th>
-              <th>função</th>
-              <th>status</th>
-              <th>criado em</th>
+              <th class="ordenavel" data-campo="id">Id</th>
+              <th class="ordenavel" data-campo="email">email</th>
+              <th class="ordenavel" data-campo="nome">nome</th>
+              <th class="ordenavel" data-campo="funcao">função</th>
+              <th class="ordenavel" data-campo="status">status</th>
+              <th class="ordenavel" data-campo="criadoEm">criado em</th>
               <th></th>
             </tr>
           </thead>

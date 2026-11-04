@@ -4,6 +4,10 @@ function mostrarPets(pets) {
     const tabela = document.getElementById('lista-pets');
     tabela.innerHTML = '';
 
+    pets = ordenar(pets, function (pet, campo) {
+        return pet[campo];
+    });
+
     pets.forEach(function (pet) {
         tabela.innerHTML +=
             '<tr>' +
@@ -51,5 +55,7 @@ document.getElementById('limpar-pesquisa').addEventListener('click', function ()
     document.getElementById('form-pesquisa').reset();
     mostrarPets(listar('pets'));
 });
+
+configurarOrdenacao(pesquisar);
 
 mostrarPets(listar('pets'));
